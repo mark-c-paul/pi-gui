@@ -23,6 +23,10 @@ private slots:
 
     void on_homeButton_clicked();
 
+    void on_settingsButton_clicked();
+
+    void on_inputButton_clicked();
+
 private:
     Ui::MainWindow *ui;
 };
