@@ -56,6 +56,10 @@ public:
     QPushButton *sevenButton;
     QPushButton *fiveButton;
     QPushButton *sixButton;
+    QTextEdit *pinText;
+    QPushButton *deleteButton;
+    QPushButton *enterButton;
+    QTextEdit *textEdit;
     QWidget *page;
     QMenuBar *menubar;
     QStatusBar *statusbar;
@@ -84,7 +88,7 @@ public:
         homeButton->setGeometry(QRect(690, 350, 91, 101));
         stackedWidget = new QStackedWidget(centralwidget);
         stackedWidget->setObjectName(QString::fromUtf8("stackedWidget"));
-        stackedWidget->setGeometry(QRect(0, -10, 801, 341));
+        stackedWidget->setGeometry(QRect(0, 0, 801, 341));
         page_1 = new QWidget();
         page_1->setObjectName(QString::fromUtf8("page_1"));
         timeValue = new QTextEdit(page_1);
@@ -150,34 +154,70 @@ public:
         page_4->setObjectName(QString::fromUtf8("page_4"));
         zeroButton = new QPushButton(page_4);
         zeroButton->setObjectName(QString::fromUtf8("zeroButton"));
-        zeroButton->setGeometry(QRect(30, 100, 75, 71));
+        zeroButton->setGeometry(QRect(20, 90, 91, 91));
+        zeroButton->setStyleSheet(QString::fromUtf8("font:36px;"));
         oneButton = new QPushButton(page_4);
         oneButton->setObjectName(QString::fromUtf8("oneButton"));
-        oneButton->setGeometry(QRect(100, 100, 75, 71));
+        oneButton->setGeometry(QRect(110, 90, 91, 91));
+        oneButton->setStyleSheet(QString::fromUtf8("font:36px;"));
         twoButton = new QPushButton(page_4);
         twoButton->setObjectName(QString::fromUtf8("twoButton"));
-        twoButton->setGeometry(QRect(170, 100, 75, 71));
+        twoButton->setGeometry(QRect(200, 90, 91, 91));
+        twoButton->setStyleSheet(QString::fromUtf8("font:36px;"));
         threeButton = new QPushButton(page_4);
         threeButton->setObjectName(QString::fromUtf8("threeButton"));
-        threeButton->setGeometry(QRect(240, 100, 75, 71));
+        threeButton->setGeometry(QRect(290, 90, 91, 91));
+        threeButton->setStyleSheet(QString::fromUtf8("font:36px;"));
         fourButton = new QPushButton(page_4);
         fourButton->setObjectName(QString::fromUtf8("fourButton"));
-        fourButton->setGeometry(QRect(310, 100, 75, 71));
+        fourButton->setGeometry(QRect(380, 90, 91, 91));
+        fourButton->setStyleSheet(QString::fromUtf8("font:36px;"));
         nineButton = new QPushButton(page_4);
         nineButton->setObjectName(QString::fromUtf8("nineButton"));
-        nineButton->setGeometry(QRect(310, 170, 75, 71));
+        nineButton->setGeometry(QRect(380, 180, 91, 91));
+        nineButton->setStyleSheet(QString::fromUtf8("font:36px;"));
         eightButton = new QPushButton(page_4);
         eightButton->setObjectName(QString::fromUtf8("eightButton"));
-        eightButton->setGeometry(QRect(240, 170, 75, 71));
+        eightButton->setGeometry(QRect(290, 180, 91, 91));
+        eightButton->setStyleSheet(QString::fromUtf8("font:36px;"));
         sevenButton = new QPushButton(page_4);
         sevenButton->setObjectName(QString::fromUtf8("sevenButton"));
-        sevenButton->setGeometry(QRect(170, 170, 75, 71));
+        sevenButton->setGeometry(QRect(200, 180, 91, 91));
+        sevenButton->setStyleSheet(QString::fromUtf8("font:36px;"));
         fiveButton = new QPushButton(page_4);
         fiveButton->setObjectName(QString::fromUtf8("fiveButton"));
-        fiveButton->setGeometry(QRect(30, 170, 75, 71));
+        fiveButton->setGeometry(QRect(20, 180, 91, 91));
+        fiveButton->setStyleSheet(QString::fromUtf8("font:36px;"));
         sixButton = new QPushButton(page_4);
         sixButton->setObjectName(QString::fromUtf8("sixButton"));
-        sixButton->setGeometry(QRect(100, 170, 75, 71));
+        sixButton->setGeometry(QRect(110, 180, 91, 91));
+        sixButton->setStyleSheet(QString::fromUtf8("font:36px;"));
+        pinText = new QTextEdit(page_4);
+        pinText->setObjectName(QString::fromUtf8("pinText"));
+        pinText->setEnabled(true);
+        pinText->setGeometry(QRect(470, 90, 291, 91));
+        pinText->setStyleSheet(QString::fromUtf8("font: 48px;\n"
+""));
+        deleteButton = new QPushButton(page_4);
+        deleteButton->setObjectName(QString::fromUtf8("deleteButton"));
+        deleteButton->setGeometry(QRect(470, 180, 91, 91));
+        deleteButton->setStyleSheet(QString::fromUtf8("#deleteButton {\n"
+"background-color: red;\n"
+"font: 36px;\n"
+"}"));
+        enterButton = new QPushButton(page_4);
+        enterButton->setObjectName(QString::fromUtf8("enterButton"));
+        enterButton->setGeometry(QRect(560, 180, 201, 91));
+        enterButton->setStyleSheet(QString::fromUtf8("#enterButton{\n"
+"background-color: green;\n"
+"font: 36px;\n"
+"}"));
+        textEdit = new QTextEdit(page_4);
+        textEdit->setObjectName(QString::fromUtf8("textEdit"));
+        textEdit->setEnabled(false);
+        textEdit->setGeometry(QRect(220, 10, 431, 71));
+        textEdit->setFrameShape(QFrame::NoFrame);
+        textEdit->setFrameShadow(QFrame::Sunken);
         stackedWidget->addWidget(page_4);
         zeroButton->raise();
         oneButton->raise();
@@ -189,6 +229,10 @@ public:
         sevenButton->raise();
         eightButton->raise();
         nineButton->raise();
+        pinText->raise();
+        deleteButton->raise();
+        enterButton->raise();
+        textEdit->raise();
         page = new QWidget();
         page->setObjectName(QString::fromUtf8("page"));
         stackedWidget->addWidget(page);
@@ -293,6 +337,18 @@ public:
         sevenButton->setText(QCoreApplication::translate("MainWindow", "7", nullptr));
         fiveButton->setText(QCoreApplication::translate("MainWindow", "5", nullptr));
         sixButton->setText(QCoreApplication::translate("MainWindow", "6", nullptr));
+        pinText->setHtml(QCoreApplication::translate("MainWindow", "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/REC-html40/strict.dtd\">\n"
+"<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css\">\n"
+"p, li { white-space: pre-wrap; }\n"
+"</style></head><body style=\" font-family:'MS Shell Dlg 2'; font-size:48px; font-weight:400; font-style:normal;\">\n"
+"<p style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><br /></p></body></html>", nullptr));
+        deleteButton->setText(QCoreApplication::translate("MainWindow", "<[X]", nullptr));
+        enterButton->setText(QCoreApplication::translate("MainWindow", "Enter", nullptr));
+        textEdit->setHtml(QCoreApplication::translate("MainWindow", "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/REC-html40/strict.dtd\">\n"
+"<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css\">\n"
+"p, li { white-space: pre-wrap; }\n"
+"</style></head><body style=\" font-family:'MS Shell Dlg 2'; font-size:8.25pt; font-weight:400; font-style:normal;\">\n"
+"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-size:36pt;\">Enter Password</span></p></body></html>", nullptr));
     } // retranslateUi
 
 };

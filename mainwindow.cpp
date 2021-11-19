@@ -42,6 +42,7 @@ void MainWindow::on_homeButton_clicked()
     ui->nextButton->setVisible(true);
     ui->settingsButton->setVisible(true);
     ui->inputButton->setVisible(true);
+    ui->pinText->clear();
 }
 
 void MainWindow::on_settingsButton_clicked()
@@ -60,4 +61,76 @@ void MainWindow::on_inputButton_clicked()
     ui->nextButton->setVisible(false);
     ui->settingsButton->setVisible(false);
     ui->inputButton->setVisible(false);
+}
+
+void MainWindow::on_deleteButton_clicked()
+{
+    QString text = ui->pinText->toPlainText();
+    text.chop(1);
+    ui->pinText->setText(text);
+}
+
+void MainWindow::on_enterButton_clicked()
+{
+
+}
+
+void MainWindow::on_zeroButton_clicked()
+{
+    if(ui->pinText->toPlainText().length()<10)
+        ui->pinText->setText(ui->pinText->toPlainText() + "0");
+}
+
+void MainWindow::on_oneButton_clicked()
+{
+    if(ui->pinText->toPlainText().length()<10)
+        ui->pinText->setText(ui->pinText->toPlainText() + "1");
+}
+
+void MainWindow::on_twoButton_clicked()
+{
+    if(ui->pinText->toPlainText().length()<10)
+        ui->pinText->setText(ui->pinText->toPlainText() + "2");
+}
+
+void MainWindow::on_threeButton_clicked()
+{
+    if(ui->pinText->toPlainText().length()<10)
+        ui->pinText->setText(ui->pinText->toPlainText() + "3");
+}
+
+void MainWindow::on_fourButton_clicked()
+{
+    if(ui->pinText->toPlainText().length()<10)
+        ui->pinText->setText(ui->pinText->toPlainText() + "4");
+}
+
+void MainWindow::on_fiveButton_clicked()
+{
+    if(ui->pinText->toPlainText().length()<10)
+        ui->pinText->setText(ui->pinText->toPlainText() + "5");
+}
+
+void MainWindow::on_sixButton_clicked()
+{
+    if(ui->pinText->toPlainText().length()<10)
+        ui->pinText->setText(ui->pinText->toPlainText() + "6");
+}
+
+void MainWindow::on_sevenButton_clicked()
+{
+    if(ui->pinText->toPlainText().length()<10)
+        ui->pinText->setText(ui->pinText->toPlainText() + "7");
+}
+
+void MainWindow::on_eightButton_clicked()
+{
+    if(ui->pinText->toPlainText().length()<10)
+        ui->pinText->setText(ui->pinText->toPlainText() + "8");
+}
+
+void MainWindow::on_nineButton_clicked()
+{
+    if(ui->pinText->toPlainText().length()<10)
+        ui->pinText->setText(ui->pinText->toPlainText() + "9");
 }
