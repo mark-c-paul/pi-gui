@@ -51,6 +51,8 @@ private slots:
 
     void on_enterButton_clicked();
 
+    void on_errorText_textChanged();
+
 private:
     Ui::MainWindow *ui;
 };

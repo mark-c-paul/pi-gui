@@ -134,3 +134,4 @@ void MainWindow::on_nineButton_clicked()
     if(ui->pinText->toPlainText().length()<10)
         ui->pinText->setText(ui->pinText->toPlainText() + "9");
 }
+
