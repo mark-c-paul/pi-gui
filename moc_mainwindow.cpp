@@ -143,7 +143,6 @@ void MainWindow::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, 
         case 14: _t->on_eightButton_clicked(); break;
         case 15: _t->on_nineButton_clicked(); break;
         case 16: _t->on_enterButton_clicked(); break;
-        case 17: _t->on_errorText_textChanged(); break;
         default: ;
         }
     }
