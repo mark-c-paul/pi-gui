@@ -137,27 +137,34 @@ public:
         QIcon icon;
         icon.addFile(QString::fromUtf8("../icons/settings.png"), QSize(), QIcon::Normal, QIcon::Off);
         settingsButton->setIcon(icon);
+        settingsButton->setIconSize(QSize(80, 80));
         inputButton = new QPushButton(centralwidget);
         inputButton->setObjectName(QString::fromUtf8("inputButton"));
         inputButton->setGeometry(QRect(130, 350, 91, 101));
+        QFont font;
+        font.setPointSize(20);
+        inputButton->setFont(font);
         backButton = new QPushButton(centralwidget);
         backButton->setObjectName(QString::fromUtf8("backButton"));
         backButton->setGeometry(QRect(240, 350, 91, 101));
         QIcon icon1;
         icon1.addFile(QString::fromUtf8("../icons/back.png"), QSize(), QIcon::Normal, QIcon::Off);
         backButton->setIcon(icon1);
+        backButton->setIconSize(QSize(80, 80));
         nextButton = new QPushButton(centralwidget);
         nextButton->setObjectName(QString::fromUtf8("nextButton"));
         nextButton->setGeometry(QRect(350, 350, 91, 101));
         QIcon icon2;
         icon2.addFile(QString::fromUtf8("../icons/next.png"), QSize(), QIcon::Normal, QIcon::Off);
         nextButton->setIcon(icon2);
+        nextButton->setIconSize(QSize(80, 80));
         homeButton = new QPushButton(centralwidget);
         homeButton->setObjectName(QString::fromUtf8("homeButton"));
         homeButton->setGeometry(QRect(690, 350, 91, 101));
         QIcon icon3;
         icon3.addFile(QString::fromUtf8("../icons/home.png"), QSize(), QIcon::Normal, QIcon::Off);
         homeButton->setIcon(icon3);
+        homeButton->setIconSize(QSize(80, 80));
         stackedWidget = new QStackedWidget(centralwidget);
         stackedWidget->setObjectName(QString::fromUtf8("stackedWidget"));
         stackedWidget->setGeometry(QRect(0, 0, 801, 341));
@@ -232,15 +239,19 @@ public:
         autoGenButton = new QPushButton(page);
         autoGenButton->setObjectName(QString::fromUtf8("autoGenButton"));
         autoGenButton->setGeometry(QRect(60, 50, 311, 101));
+        autoGenButton->setFont(font);
         temperatureUnitsButton = new QPushButton(page);
         temperatureUnitsButton->setObjectName(QString::fromUtf8("temperatureUnitsButton"));
         temperatureUnitsButton->setGeometry(QRect(60, 180, 311, 101));
+        temperatureUnitsButton->setFont(font);
         brightnessButton = new QPushButton(page);
         brightnessButton->setObjectName(QString::fromUtf8("brightnessButton"));
         brightnessButton->setGeometry(QRect(430, 50, 311, 101));
+        brightnessButton->setFont(font);
         shutdownButton = new QPushButton(page);
         shutdownButton->setObjectName(QString::fromUtf8("shutdownButton"));
         shutdownButton->setGeometry(QRect(430, 180, 311, 101));
+        shutdownButton->setFont(font);
         stackedWidget->addWidget(page);
         page_4 = new QWidget();
         page_4->setObjectName(QString::fromUtf8("page_4"));
@@ -349,14 +360,17 @@ public:
         fifteenAmpButton = new QPushButton(page_5);
         fifteenAmpButton->setObjectName(QString::fromUtf8("fifteenAmpButton"));
         fifteenAmpButton->setGeometry(QRect(100, 140, 151, 101));
+        fifteenAmpButton->setFont(font);
         fifteenAmpButton->setCheckable(true);
         twentyfourAmpButton = new QPushButton(page_5);
         twentyfourAmpButton->setObjectName(QString::fromUtf8("twentyfourAmpButton"));
         twentyfourAmpButton->setGeometry(QRect(320, 140, 151, 101));
+        twentyfourAmpButton->setFont(font);
         twentyfourAmpButton->setCheckable(true);
         thirtyAmpButton = new QPushButton(page_5);
         thirtyAmpButton->setObjectName(QString::fromUtf8("thirtyAmpButton"));
         thirtyAmpButton->setGeometry(QRect(540, 140, 151, 101));
+        thirtyAmpButton->setFont(font);
         thirtyAmpButton->setCheckable(true);
         thirtyAmpButton->setChecked(false);
         stackedWidget->addWidget(page_5);
@@ -374,7 +388,7 @@ public:
 
         retranslateUi(MainWindow);
 
-        stackedWidget->setCurrentIndex(4);
+        stackedWidget->setCurrentIndex(2);
 
 
         QMetaObject::connectSlotsByName(MainWindow);

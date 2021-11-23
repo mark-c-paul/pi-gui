@@ -262,6 +262,12 @@
      <iconset>
       <normaloff>../icons/settings.png</normaloff>../icons/settings.png</iconset>
     </property>
+    <property name="iconSize">
+     <size>
+      <width>80</width>
+      <height>80</height>
+     </size>
+    </property>
    </widget>
    <widget class="QPushButton" name="inputButton">
     <property name="geometry">
@@ -271,6 +277,11 @@
       <width>91</width>
       <height>101</height>
      </rect>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>20</pointsize>
+     </font>
     </property>
     <property name="text">
      <string>30A
@@ -293,6 +304,12 @@
      <iconset>
       <normaloff>../icons/back.png</normaloff>../icons/back.png</iconset>
     </property>
+    <property name="iconSize">
+     <size>
+      <width>80</width>
+      <height>80</height>
+     </size>
+    </property>
    </widget>
    <widget class="QPushButton" name="nextButton">
     <property name="geometry">
@@ -309,6 +326,12 @@
     <property name="icon">
      <iconset>
       <normaloff>../icons/next.png</normaloff>../icons/next.png</iconset>
+    </property>
+    <property name="iconSize">
+     <size>
+      <width>80</width>
+      <height>80</height>
+     </size>
     </property>
    </widget>
    <widget class="QPushButton" name="homeButton">
@@ -327,6 +350,12 @@
      <iconset>
       <normaloff>../icons/home.png</normaloff>../icons/home.png</iconset>
     </property>
+    <property name="iconSize">
+     <size>
+      <width>80</width>
+      <height>80</height>
+     </size>
+    </property>
    </widget>
    <widget class="QStackedWidget" name="stackedWidget">
     <property name="geometry">
@@ -338,7 +367,7 @@
      </rect>
     </property>
     <property name="currentIndex">
-     <number>4</number>
+     <number>2</number>
     </property>
     <widget class="QWidget" name="page_1">
      <widget class="QTextEdit" name="timeValue">
@@ -615,6 +644,11 @@ p, li { white-space: pre-wrap; }
         <height>101</height>
        </rect>
       </property>
+      <property name="font">
+       <font>
+        <pointsize>20</pointsize>
+       </font>
+      </property>
       <property name="text">
        <string>Auto Gen-Start
 DISABLED</string>
@@ -628,6 +662,11 @@ DISABLED</string>
         <width>311</width>
         <height>101</height>
        </rect>
+      </property>
+      <property name="font">
+       <font>
+        <pointsize>20</pointsize>
+       </font>
       </property>
       <property name="text">
        <string>TEMPERATURE UNITS
@@ -643,6 +682,11 @@ CELCIUS</string>
         <height>101</height>
        </rect>
       </property>
+      <property name="font">
+       <font>
+        <pointsize>20</pointsize>
+       </font>
+      </property>
       <property name="text">
        <string>BRIGHTNESS
 100%</string>
@@ -656,6 +700,11 @@ CELCIUS</string>
         <width>311</width>
         <height>101</height>
        </rect>
+      </property>
+      <property name="font">
+       <font>
+        <pointsize>20</pointsize>
+       </font>
       </property>
       <property name="text">
        <string>SHUTDOWN</string>
@@ -1001,6 +1050,11 @@ p, li { white-space: pre-wrap; }
         <height>101</height>
        </rect>
       </property>
+      <property name="font">
+       <font>
+        <pointsize>20</pointsize>
+       </font>
+      </property>
       <property name="text">
        <string>15 A</string>
       </property>
@@ -1017,6 +1071,11 @@ p, li { white-space: pre-wrap; }
         <height>101</height>
        </rect>
       </property>
+      <property name="font">
+       <font>
+        <pointsize>20</pointsize>
+       </font>
+      </property>
       <property name="text">
        <string>24 A</string>
       </property>
@@ -1032,6 +1091,11 @@ p, li { white-space: pre-wrap; }
         <width>151</width>
         <height>101</height>
        </rect>
+      </property>
+      <property name="font">
+       <font>
+        <pointsize>20</pointsize>
+       </font>
       </property>
       <property name="text">
        <string>30 A</string>

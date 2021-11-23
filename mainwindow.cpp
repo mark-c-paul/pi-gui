@@ -169,7 +169,7 @@ void MainWindow::on_nineButton_clicked()
 
 void MainWindow::on_fifteenAmpButton_clicked()
 {
-    ui->inputButton->setText("15A Input");
+    ui->inputButton->setText("15A\nInput");
     ui->fifteenAmpButton->setChecked(true);
     ui->twentyfourAmpButton->setChecked(false);
     ui->thirtyAmpButton->setChecked(false);
@@ -178,7 +178,7 @@ void MainWindow::on_fifteenAmpButton_clicked()
 
 void MainWindow::on_twentyfourAmpButton_clicked()
 {
-    ui->inputButton->setText("24A Input");
+    ui->inputButton->setText("24A\nInput");
     ui->fifteenAmpButton->setChecked(false);
     ui->twentyfourAmpButton->setChecked(true);
     ui->thirtyAmpButton->setChecked(false);
@@ -187,7 +187,7 @@ void MainWindow::on_twentyfourAmpButton_clicked()
 
 void MainWindow::on_thirtyAmpButton_clicked()
 {
-    ui->inputButton->setText("30A Input");
+    ui->inputButton->setText("30A\nInput");
     ui->fifteenAmpButton->setChecked(false);
     ui->twentyfourAmpButton->setChecked(false);
     ui->thirtyAmpButton->setChecked(true);
