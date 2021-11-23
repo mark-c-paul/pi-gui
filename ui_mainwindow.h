@@ -46,6 +46,11 @@ public:
     QTextEdit *pageValues_3;
     QTextEdit *pageLabels_3;
     QFrame *line_2;
+    QWidget *page;
+    QPushButton *autoGenButton;
+    QPushButton *temperatureUnitsButton;
+    QPushButton *brightnessButton;
+    QPushButton *shutdownButton;
     QWidget *page_4;
     QPushButton *zeroButton;
     QPushButton *oneButton;
@@ -63,6 +68,11 @@ public:
     QTextEdit *textEdit;
     QTextEdit *errorText;
     QWidget *page_5;
+    QTextEdit *textEdit_2;
+    QFrame *line_3;
+    QPushButton *fifteenAmpButton;
+    QPushButton *twentyfourAmpButton;
+    QPushButton *thirtyAmpButton;
     QWidget *page_6;
     QMenuBar *menubar;
     QStatusBar *statusbar;
@@ -202,6 +212,21 @@ public:
         line_2->setFrameShape(QFrame::VLine);
         line_2->setFrameShadow(QFrame::Sunken);
         stackedWidget->addWidget(page_3);
+        page = new QWidget();
+        page->setObjectName(QString::fromUtf8("page"));
+        autoGenButton = new QPushButton(page);
+        autoGenButton->setObjectName(QString::fromUtf8("autoGenButton"));
+        autoGenButton->setGeometry(QRect(60, 50, 311, 101));
+        temperatureUnitsButton = new QPushButton(page);
+        temperatureUnitsButton->setObjectName(QString::fromUtf8("temperatureUnitsButton"));
+        temperatureUnitsButton->setGeometry(QRect(60, 180, 311, 101));
+        brightnessButton = new QPushButton(page);
+        brightnessButton->setObjectName(QString::fromUtf8("brightnessButton"));
+        brightnessButton->setGeometry(QRect(430, 50, 311, 101));
+        shutdownButton = new QPushButton(page);
+        shutdownButton->setObjectName(QString::fromUtf8("shutdownButton"));
+        shutdownButton->setGeometry(QRect(430, 180, 311, 101));
+        stackedWidget->addWidget(page);
         page_4 = new QWidget();
         page_4->setObjectName(QString::fromUtf8("page_4"));
         zeroButton = new QPushButton(page_4);
@@ -297,6 +322,29 @@ public:
         errorText->raise();
         page_5 = new QWidget();
         page_5->setObjectName(QString::fromUtf8("page_5"));
+        textEdit_2 = new QTextEdit(page_5);
+        textEdit_2->setObjectName(QString::fromUtf8("textEdit_2"));
+        textEdit_2->setEnabled(false);
+        textEdit_2->setGeometry(QRect(10, 10, 781, 61));
+        textEdit_2->setFrameShape(QFrame::NoFrame);
+        line_3 = new QFrame(page_5);
+        line_3->setObjectName(QString::fromUtf8("line_3"));
+        line_3->setGeometry(QRect(-83, 70, 971, 20));
+        line_3->setFrameShape(QFrame::HLine);
+        line_3->setFrameShadow(QFrame::Sunken);
+        fifteenAmpButton = new QPushButton(page_5);
+        fifteenAmpButton->setObjectName(QString::fromUtf8("fifteenAmpButton"));
+        fifteenAmpButton->setGeometry(QRect(100, 140, 151, 101));
+        fifteenAmpButton->setCheckable(true);
+        twentyfourAmpButton = new QPushButton(page_5);
+        twentyfourAmpButton->setObjectName(QString::fromUtf8("twentyfourAmpButton"));
+        twentyfourAmpButton->setGeometry(QRect(320, 140, 151, 101));
+        twentyfourAmpButton->setCheckable(true);
+        thirtyAmpButton = new QPushButton(page_5);
+        thirtyAmpButton->setObjectName(QString::fromUtf8("thirtyAmpButton"));
+        thirtyAmpButton->setGeometry(QRect(540, 140, 151, 101));
+        thirtyAmpButton->setCheckable(true);
+        thirtyAmpButton->setChecked(false);
         stackedWidget->addWidget(page_5);
         page_6 = new QWidget();
         page_6->setObjectName(QString::fromUtf8("page_6"));
@@ -304,7 +352,7 @@ public:
         MainWindow->setCentralWidget(centralwidget);
         menubar = new QMenuBar(MainWindow);
         menubar->setObjectName(QString::fromUtf8("menubar"));
-        menubar->setGeometry(QRect(0, 0, 800, 22));
+        menubar->setGeometry(QRect(0, 0, 800, 21));
         MainWindow->setMenuBar(menubar);
         statusbar = new QStatusBar(MainWindow);
         statusbar->setObjectName(QString::fromUtf8("statusbar"));
@@ -322,79 +370,87 @@ public:
     {
         MainWindow->setWindowTitle(QCoreApplication::translate("MainWindow", "MainWindow", nullptr));
         settingsButton->setText(QCoreApplication::translate("MainWindow", "Settings", nullptr));
-        inputButton->setText(QCoreApplication::translate("MainWindow", "30A Input", nullptr));
+        inputButton->setText(QCoreApplication::translate("MainWindow", "30A\n"
+" Input", nullptr));
         backButton->setText(QCoreApplication::translate("MainWindow", "Back", nullptr));
         nextButton->setText(QCoreApplication::translate("MainWindow", "Next", nullptr));
         homeButton->setText(QCoreApplication::translate("MainWindow", "Home", nullptr));
         timeValue->setHtml(QCoreApplication::translate("MainWindow", "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/REC-html40/strict.dtd\">\n"
-"<html><head><meta name=\"qrichtext\" content=\"1\" /><meta charset=\"utf-8\" /><style type=\"text/css\">\n"
+"<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css\">\n"
 "p, li { white-space: pre-wrap; }\n"
-"</style></head><body style=\" font-family:'Segoe UI'; font-size:9pt; font-weight:400; font-style:normal;\">\n"
+"</style></head><body style=\" font-family:'MS Shell Dlg 2'; font-size:8.25pt; font-weight:400; font-style:normal;\">\n"
 "<p align=\"center\" style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-family:'PibotoLt'; font-size:72pt; font-weight:600; color:#ffffff;\">00:00 </span><span style=\" font-family:'PibotoLt'; font-size:36pt; font-weight:600; color:#ffffff;\">HRS</span></p></body></html>", nullptr));
         socValue->setHtml(QCoreApplication::translate("MainWindow", "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/REC-html40/strict.dtd\">\n"
-"<html><head><meta name=\"qrichtext\" content=\"1\" /><meta charset=\"utf-8\" /><style type=\"text/css\">\n"
+"<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css\">\n"
 "p, li { white-space: pre-wrap; }\n"
-"</style></head><body style=\" font-family:'Segoe UI'; font-size:9pt; font-weight:400; font-style:normal;\">\n"
+"</style></head><body style=\" font-family:'MS Shell Dlg 2'; font-size:8.25pt; font-weight:400; font-style:normal;\">\n"
 "<p align=\"center\" style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-family:'PibotoLt'; font-size:72pt; font-weight:600; color:#ffffff;\">00%</span></p></body></html>", nullptr));
         socText->setHtml(QCoreApplication::translate("MainWindow", "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/REC-html40/strict.dtd\">\n"
-"<html><head><meta name=\"qrichtext\" content=\"1\" /><meta charset=\"utf-8\" /><style type=\"text/css\">\n"
+"<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css\">\n"
 "p, li { white-space: pre-wrap; }\n"
-"</style></head><body style=\" font-family:'Segoe UI'; font-size:9pt; font-weight:400; font-style:normal;\">\n"
+"</style></head><body style=\" font-family:'MS Shell Dlg 2'; font-size:8.25pt; font-weight:400; font-style:normal;\">\n"
 "<p align=\"center\" style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-family:'PibotoLt'; font-size:12pt; font-weight:600; color:#b6b83b;\">State of Charge</span></p>\n"
 "<p align=\"center\" style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-family:'PibotoLt'; font-size:12pt; font-weight:600; color:#b6b83b;\">SOC</span></p></body></html>", nullptr));
         timeText->setHtml(QCoreApplication::translate("MainWindow", "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/REC-html40/strict.dtd\">\n"
-"<html><head><meta name=\"qrichtext\" content=\"1\" /><meta charset=\"utf-8\" /><style type=\"text/css\">\n"
+"<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css\">\n"
 "p, li { white-space: pre-wrap; }\n"
-"</style></head><body style=\" font-family:'Segoe UI'; font-size:9pt; font-weight:400; font-style:normal;\">\n"
+"</style></head><body style=\" font-family:'MS Shell Dlg 2'; font-size:8.25pt; font-weight:400; font-style:normal;\">\n"
 "<p align=\"center\" style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-family:'PibotoLt'; font-size:12pt; font-weight:600; color:#b6b83b;\">Estimated</span></p>\n"
 "<p align=\"center\" style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-family:'PibotoLt'; font-size:12pt; font-weight:600; color:#b6b83b;\">Remaining Time</span></p></body></html>", nullptr));
         outputText->setHtml(QCoreApplication::translate("MainWindow", "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/REC-html40/strict.dtd\">\n"
-"<html><head><meta name=\"qrichtext\" content=\"1\" /><meta charset=\"utf-8\" /><style type=\"text/css\">\n"
+"<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css\">\n"
 "p, li { white-space: pre-wrap; }\n"
-"</style></head><body style=\" font-family:'Segoe UI'; font-size:9pt; font-weight:400; font-style:normal;\">\n"
+"</style></head><body style=\" font-family:'MS Shell Dlg 2'; font-size:8.25pt; font-weight:400; font-style:normal;\">\n"
 "<p align=\"center\" style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-family:'PibotoLt'; font-size:12pt; font-weight:600; color:#b6b83b;\">AC Output: -</span></p></body></html>", nullptr));
         pageLabels_2->setHtml(QCoreApplication::translate("MainWindow", "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/REC-html40/strict.dtd\">\n"
-"<html><head><meta name=\"qrichtext\" content=\"1\" /><meta charset=\"utf-8\" /><style type=\"text/css\">\n"
+"<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css\">\n"
 "p, li { white-space: pre-wrap; }\n"
-"</style></head><body style=\" font-family:'Segoe UI'; font-size:9pt; font-weight:400; font-style:normal;\">\n"
+"</style></head><body style=\" font-family:'MS Shell Dlg 2'; font-size:8.25pt; font-weight:400; font-style:normal;\">\n"
 "<p align=\"right\" style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-family:'PibotoLt'; font-size:26pt; font-weight:600; color:#b6b83b;\">Battery Voltage</span></p>\n"
 "<p align=\"right\" style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-family:'PibotoLt'; font-size:26pt; font-weight:600; color:#b6b83b;\">Depth of Discharge</span></p>\n"
-"<p align=\"right\" style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span styl"
-                        "e=\" font-family:'PibotoLt'; font-size:26pt; font-weight:600; color:#b6b83b;\">DC Current</span></p>\n"
+"<p align=\"right\" style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-family:"
+                        "'PibotoLt'; font-size:26pt; font-weight:600; color:#b6b83b;\">DC Current</span></p>\n"
 "<p align=\"right\" style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-family:'PibotoLt'; font-size:26pt; font-weight:600; color:#b6b83b;\">Battery Temperature</span></p>\n"
 "<p align=\"right\" style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-family:'PibotoLt'; font-size:26pt; font-weight:600; color:#b6b83b;\">Status</span></p></body></html>", nullptr));
         pageValues_2->setHtml(QCoreApplication::translate("MainWindow", "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/REC-html40/strict.dtd\">\n"
-"<html><head><meta name=\"qrichtext\" content=\"1\" /><meta charset=\"utf-8\" /><style type=\"text/css\">\n"
+"<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css\">\n"
 "p, li { white-space: pre-wrap; }\n"
-"</style></head><body style=\" font-family:'Segoe UI'; font-size:9pt; font-weight:400; font-style:normal;\">\n"
+"</style></head><body style=\" font-family:'MS Shell Dlg 2'; font-size:8.25pt; font-weight:400; font-style:normal;\">\n"
 "<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-family:'PibotoLt'; font-size:26pt; font-weight:600; color:#ffffff;\">0.0 VDC</span></p>\n"
 "<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-family:'PibotoLt'; font-size:26pt; font-weight:600; color:#ffffff;\">0 Ahr</span></p>\n"
-"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-family:'PibotoLt'; font-size:26pt; font-weight:600; color:#"
-                        "ffffff;\">0.0 ADC</span></p>\n"
+"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-family:'PibotoLt'; font-size:26pt; font-weight:600; color:#ffffff;\">0.0 ADC"
+                        "</span></p>\n"
 "<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-family:'PibotoLt'; font-size:26pt; font-weight:600; color:#ffffff;\">0 \302\260C</span></p>\n"
 "<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-family:'PibotoLt'; font-size:26pt; font-weight:600; color:#ffffff;\">Nothing</span></p></body></html>", nullptr));
         pageValues_3->setHtml(QCoreApplication::translate("MainWindow", "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/REC-html40/strict.dtd\">\n"
-"<html><head><meta name=\"qrichtext\" content=\"1\" /><meta charset=\"utf-8\" /><style type=\"text/css\">\n"
+"<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css\">\n"
 "p, li { white-space: pre-wrap; }\n"
-"</style></head><body style=\" font-family:'Segoe UI'; font-size:9pt; font-weight:400; font-style:normal;\">\n"
+"</style></head><body style=\" font-family:'MS Shell Dlg 2'; font-size:8.25pt; font-weight:400; font-style:normal;\">\n"
 "<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-family:'PibotoLt'; font-size:26pt; font-weight:600; color:#ffffff;\">000-000-00</span></p>\n"
 "<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-family:'PibotoLt'; font-size:26pt; font-weight:600; color:#ffffff;\">000000</span></p>\n"
-"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-family:'PibotoLt'; font-size:26pt; font-weight:600; col"
-                        "or:#ffffff;\">(250) 804-1247</span></p>\n"
+"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-family:'PibotoLt'; font-size:26pt; font-weight:600; color:#ffffff;\">(25"
+                        "0) 804-1247</span></p>\n"
 "<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-family:'PibotoLt'; font-size:26pt; font-weight:600; color:#ffffff;\">0000000</span></p>\n"
 "<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-family:'PibotoLt'; font-size:26pt; font-weight:600; color:#ffffff;\">v0.00/000/</span></p>\n"
 "<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-family:'PibotoLt'; font-size:26pt; font-weight:600; color:#ffffff;\">0 Ah</span></p></body></html>", nullptr));
         pageLabels_3->setHtml(QCoreApplication::translate("MainWindow", "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/REC-html40/strict.dtd\">\n"
-"<html><head><meta name=\"qrichtext\" content=\"1\" /><meta charset=\"utf-8\" /><style type=\"text/css\">\n"
+"<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css\">\n"
 "p, li { white-space: pre-wrap; }\n"
-"</style></head><body style=\" font-family:'Segoe UI'; font-size:9pt; font-weight:400; font-style:normal;\">\n"
+"</style></head><body style=\" font-family:'MS Shell Dlg 2'; font-size:8.25pt; font-weight:400; font-style:normal;\">\n"
 "<p align=\"right\" style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-family:'PibotoLt'; font-size:26pt; font-weight:600; color:#b6b83b;\">Part #</span></p>\n"
 "<p align=\"right\" style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-family:'PibotoLt'; font-size:26pt; font-weight:600; color:#b6b83b;\">Serial #</span></p>\n"
-"<p align=\"right\" style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-family:'P"
-                        "ibotoLt'; font-size:26pt; font-weight:600; color:#b6b83b;\">Tech Support</span></p>\n"
+"<p align=\"right\" style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-family:'PibotoLt'; font-si"
+                        "ze:26pt; font-weight:600; color:#b6b83b;\">Tech Support</span></p>\n"
 "<p align=\"right\" style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-family:'PibotoLt'; font-size:26pt; font-weight:600; color:#b6b83b;\">Wifi ID</span></p>\n"
 "<p align=\"right\" style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-family:'PibotoLt'; font-size:26pt; font-weight:600; color:#b6b83b;\">Version</span></p>\n"
 "<p align=\"right\" style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-family:'PibotoLt'; font-size:26pt; font-weight:600; color:#b6b83b;\">Battery</span></p></body></html>", nullptr));
+        autoGenButton->setText(QCoreApplication::translate("MainWindow", "Auto Gen-Start\n"
+"DISABLED", nullptr));
+        temperatureUnitsButton->setText(QCoreApplication::translate("MainWindow", "TEMPERATURE UNITS\n"
+"CELCIUS", nullptr));
+        brightnessButton->setText(QCoreApplication::translate("MainWindow", "BRIGHTNESS\n"
+"100%", nullptr));
+        shutdownButton->setText(QCoreApplication::translate("MainWindow", "SHUTDOWN", nullptr));
         zeroButton->setText(QCoreApplication::translate("MainWindow", "0", nullptr));
         oneButton->setText(QCoreApplication::translate("MainWindow", "1", nullptr));
         twoButton->setText(QCoreApplication::translate("MainWindow", "2", nullptr));
@@ -406,22 +462,30 @@ public:
         fiveButton->setText(QCoreApplication::translate("MainWindow", "5", nullptr));
         sixButton->setText(QCoreApplication::translate("MainWindow", "6", nullptr));
         pinText->setHtml(QCoreApplication::translate("MainWindow", "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/REC-html40/strict.dtd\">\n"
-"<html><head><meta name=\"qrichtext\" content=\"1\" /><meta charset=\"utf-8\" /><style type=\"text/css\">\n"
+"<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css\">\n"
 "p, li { white-space: pre-wrap; }\n"
-"</style></head><body style=\" font-family:'Segoe UI'; font-size:42px; font-weight:400; font-style:normal;\">\n"
-"<p align=\"center\" style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><br /></p></body></html>", nullptr));
+"</style></head><body style=\" font-family:'MS Shell Dlg 2'; font-size:42px; font-weight:400; font-style:normal;\">\n"
+"<p align=\"center\" style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-family:'Segoe UI';\"><br /></p></body></html>", nullptr));
         deleteButton->setText(QCoreApplication::translate("MainWindow", "<[X]", nullptr));
         enterButton->setText(QCoreApplication::translate("MainWindow", "Enter", nullptr));
         textEdit->setHtml(QCoreApplication::translate("MainWindow", "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/REC-html40/strict.dtd\">\n"
-"<html><head><meta name=\"qrichtext\" content=\"1\" /><meta charset=\"utf-8\" /><style type=\"text/css\">\n"
+"<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css\">\n"
 "p, li { white-space: pre-wrap; }\n"
-"</style></head><body style=\" font-family:'Segoe UI'; font-size:9pt; font-weight:400; font-style:normal;\">\n"
-"<p align=\"center\" style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-family:'MS Shell Dlg 2'; font-size:36pt; color:#ffffff;\">Enter Password</span></p></body></html>", nullptr));
+"</style></head><body style=\" font-family:'MS Shell Dlg 2'; font-size:8.25pt; font-weight:400; font-style:normal;\">\n"
+"<p align=\"center\" style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-size:36pt; color:#ffffff;\">Enter Password</span></p></body></html>", nullptr));
         errorText->setHtml(QCoreApplication::translate("MainWindow", "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/REC-html40/strict.dtd\">\n"
-"<html><head><meta name=\"qrichtext\" content=\"1\" /><meta charset=\"utf-8\" /><style type=\"text/css\">\n"
+"<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css\">\n"
 "p, li { white-space: pre-wrap; }\n"
-"</style></head><body style=\" font-family:'Segoe UI'; font-size:9pt; font-weight:400; font-style:normal;\">\n"
-"<p align=\"center\" style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-family:'MS Shell Dlg 2'; font-size:36pt; color:#ff0000;\">Incorrect</span></p></body></html>", nullptr));
+"</style></head><body style=\" font-family:'MS Shell Dlg 2'; font-size:8.25pt; font-weight:400; font-style:normal;\">\n"
+"<p align=\"center\" style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-size:36pt; color:#ff0000;\">Incorrect</span></p></body></html>", nullptr));
+        textEdit_2->setHtml(QCoreApplication::translate("MainWindow", "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/REC-html40/strict.dtd\">\n"
+"<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css\">\n"
+"p, li { white-space: pre-wrap; }\n"
+"</style></head><body style=\" font-family:'MS Shell Dlg 2'; font-size:8.25pt; font-weight:400; font-style:normal;\">\n"
+"<p align=\"center\" style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-size:28pt; font-weight:600; color:#c6c600;\">CHARGE AC INPUT CURRENT</span></p></body></html>", nullptr));
+        fifteenAmpButton->setText(QCoreApplication::translate("MainWindow", "15 A", nullptr));
+        twentyfourAmpButton->setText(QCoreApplication::translate("MainWindow", "24 A", nullptr));
+        thirtyAmpButton->setText(QCoreApplication::translate("MainWindow", "30 A", nullptr));
     } // retranslateUi
 
 };

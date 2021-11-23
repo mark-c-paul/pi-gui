@@ -1,5 +1,8 @@
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
+#include <QProcess>
+#include <QFile>
+
 
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
@@ -7,8 +10,11 @@ MainWindow::MainWindow(QWidget *parent)
 {
     ui->setupUi(this);
     ui->backButton->setVisible(false);
+    ui->thirtyAmpButton->setChecked(true);
     ui->errorText->setVisible(false);
     ui->stackedWidget->setCurrentIndex(0);
+    QProcess::execute("echo 255 > /sys/class/backlight/rpi_backlight/brightness");
+    ui->brightnessButton->setText("BRIGHTNESS\n100%");
 }
 
 MainWindow::~MainWindow()
@@ -20,8 +26,8 @@ MainWindow::~MainWindow()
 
 void MainWindow::on_nextButton_clicked()
 {
-    ui->stackedWidget->setCurrentIndex(qMin(2,ui->stackedWidget->currentIndex()+1));
-    if(ui->stackedWidget->currentIndex()==2){
+    ui->stackedWidget->setCurrentIndex(qMin(3,ui->stackedWidget->currentIndex()+1));
+    if(ui->stackedWidget->currentIndex()==3){
         ui->nextButton->setVisible(false);
     }
     ui->backButton->setVisible(true);
@@ -49,7 +55,7 @@ void MainWindow::on_homeButton_clicked()
 
 void MainWindow::on_settingsButton_clicked()
 {
-    ui->stackedWidget->setCurrentIndex(3);
+    ui->stackedWidget->setCurrentIndex(4);
     ui->backButton->setVisible(false);
     ui->nextButton->setVisible(false);
     ui->settingsButton->setVisible(false);
@@ -80,7 +86,7 @@ void MainWindow::on_enterButton_clicked()
         ui->pinText->clear();
     }
     else{
-        ui->stackedWidget->setCurrentIndex(4);
+        ui->stackedWidget->setCurrentIndex(6);
     }
 }
 
@@ -154,9 +160,113 @@ void MainWindow::on_nineButton_clicked()
         ui->pinText->setText(ui->pinText->toPlainText() + "9");
 }
 
-
-void MainWindow::on_errorText_textChanged()
+void MainWindow::on_fifteenAmpButton_clicked()
 {
+    ui->inputButton->setText("15A Input");
+    ui->fifteenAmpButton->setChecked(true);
+    ui->twentyfourAmpButton->setChecked(false);
+    ui->thirtyAmpButton->setChecked(false);
+    ui->homeButton->click();
+}
 
+void MainWindow::on_twentyfourAmpButton_clicked()
+{
+    ui->inputButton->setText("24A Input");
+    ui->fifteenAmpButton->setChecked(false);
+    ui->twentyfourAmpButton->setChecked(true);
+    ui->thirtyAmpButton->setChecked(false);
+    ui->homeButton->click();
+}
+
+void MainWindow::on_thirtyAmpButton_clicked()
+{
+    ui->inputButton->setText("30A Input");
+    ui->fifteenAmpButton->setChecked(false);
+    ui->twentyfourAmpButton->setChecked(false);
+    ui->thirtyAmpButton->setChecked(true);
+    ui->homeButton->click();
+}
+
+void MainWindow::on_autoGenButton_clicked()
+{
+    if(ui->autoGenButton->text()=="Auto Gen-Start\nDISABLED"){
+        ui->autoGenButton->setText("Auto Gen-Start\nENABLED");
+    }
+    else if(ui->autoGenButton->text()=="Auto Gen-Start\nENABLED"){
+        ui->autoGenButton->setText("Auto Gen-Start\nDISABLED");
+    }
+}
+
+void MainWindow::on_brightnessButton_clicked()
+{
+    QString value;
+    int num;
+    QFile file("/sys/class/backlight/rpi_backlight/brightness");
+    if (!file.open(QIODevice::ReadOnly | QIODevice::Text))
+        return;
+
+    while (!file.atEnd()) {
+        QByteArray line = file.readLine();
+        value=line;
+    }
+    num = value.toInt();
+    switch(num){
+
+    case 255:
+        QProcess::execute("echo 25 > /sys/class/backlight/rpi_backlight/brightness");
+        ui->brightnessButton->setText("BRIGHTNESS\n10%");
+        break;
+    case 25:
+        QProcess::execute("echo 51 > /sys/class/backlight/rpi_backlight/brightness");
+        ui->brightnessButton->setText("BRIGHTNESS\n20%");
+        break;
+    case 51:
+        QProcess::execute("echo 76 > /sys/class/backlight/rpi_backlight/brightness");
+        ui->brightnessButton->setText("BRIGHTNESS\n30%");
+        break;
+    case 76:
+        QProcess::execute("echo 102 > /sys/class/backlight/rpi_backlight/brightness");
+        ui->brightnessButton->setText("BRIGHTNESS\n40%");
+        break;
+    case 102:
+        QProcess::execute("echo 127 > /sys/class/backlight/rpi_backlight/brightness");
+        ui->brightnessButton->setText("BRIGHTNESS\n50%");
+        break;
+    case 127:
+        QProcess::execute("echo 153 > /sys/class/backlight/rpi_backlight/brightness");
+        ui->brightnessButton->setText("BRIGHTNESS\n60%");
+        break;
+    case 153:
+        QProcess::execute("echo 178 > /sys/class/backlight/rpi_backlight/brightness");
+        ui->brightnessButton->setText("BRIGHTNESS\n70%");
+        break;
+    case 178:
+        QProcess::execute("echo 204 > /sys/class/backlight/rpi_backlight/brightness");
+        ui->brightnessButton->setText("BRIGHTNESS\n80%");
+        break;
+    case 204:
+        QProcess::execute("echo 229 > /sys/class/backlight/rpi_backlight/brightness");
+        ui->brightnessButton->setText("BRIGHTNESS\n90%");
+        break;
+    default:
+        QProcess::execute("echo 255 > /sys/class/backlight/rpi_backlight/brightness");
+        ui->brightnessButton->setText("BRIGHTNESS\n100%");
+        break;
+    }
+}
+
+void MainWindow::on_temperatureUnitsButton_clicked()
+{
+    if(ui->temperatureUnitsButton->text()=="TEMPERATURE UNITS\nCELCIUS"){
+        ui->temperatureUnitsButton->setText("TEMPERATURE UNITS\nFARENHEIT");
+    }
+    else if(ui->temperatureUnitsButton->text()=="TEMPERATURE UNITS\nFARENHEIT"){
+        ui->temperatureUnitsButton->setText("TEMPERATURE UNITS\nCELCIUS");
+    }
+}
+
+void MainWindow::on_shutdownButton_clicked()
+{
+    QApplication::quit();
 }
 

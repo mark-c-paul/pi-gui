@@ -51,7 +51,19 @@ private slots:
 
     void on_enterButton_clicked();
 
-    void on_errorText_textChanged();
+    void on_fifteenAmpButton_clicked();
+
+    void on_twentyfourAmpButton_clicked();
+
+    void on_thirtyAmpButton_clicked();
+
+    void on_autoGenButton_clicked();
+
+    void on_brightnessButton_clicked();
+
+    void on_temperatureUnitsButton_clicked();
+
+    void on_shutdownButton_clicked();
 
 private:
     Ui::MainWindow *ui;

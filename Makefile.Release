@@ -598,7 +598,12 @@ release/mainwindow.o: ../pi-gui/mainwindow.cpp ../pi-gui/mainwindow.h \
 		C:/Qt/6.2.1/mingw81_64/include/QtGui/qtextcursor.h \
 		C:/Qt/6.2.1/mingw81_64/include/QtGui/qtextformat.h \
 		C:/Qt/6.2.1/mingw81_64/include/QtGui/qpen.h \
-		C:/Qt/6.2.1/mingw81_64/include/QtWidgets/QWidget
+		C:/Qt/6.2.1/mingw81_64/include/QtWidgets/QWidget \
+		C:/Qt/6.2.1/mingw81_64/include/QtCore/QProcess \
+		C:/Qt/6.2.1/mingw81_64/include/QtCore/qprocess.h \
+		C:/Qt/6.2.1/mingw81_64/include/QtCore/QFile \
+		C:/Qt/6.2.1/mingw81_64/include/QtCore/qfile.h \
+		C:/Qt/6.2.1/mingw81_64/include/QtCore/qfiledevice.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o release\mainwindow.o ..\pi-gui\mainwindow.cpp
 
 release/moc_mainwindow.o: release/moc_mainwindow.cpp 
