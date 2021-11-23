@@ -556,6 +556,7 @@ debug/mainwindow.o: ../pi-gui/mainwindow.cpp ../pi-gui/mainwindow.h \
 		C:/Qt/6.2.1/mingw81_64/include/QtGui/qicon.h \
 		../pi-gui/ui_mainwindow.h \
 		C:/Qt/6.2.1/mingw81_64/include/QtCore/QVariant \
+		C:/Qt/6.2.1/mingw81_64/include/QtGui/QIcon \
 		C:/Qt/6.2.1/mingw81_64/include/QtWidgets/QApplication \
 		C:/Qt/6.2.1/mingw81_64/include/QtWidgets/qapplication.h \
 		C:/Qt/6.2.1/mingw81_64/include/QtCore/qcoreapplication.h \

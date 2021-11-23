@@ -245,12 +245,19 @@
      <rect>
       <x>20</x>
       <y>350</y>
-      <width>91</width>
+      <width>87</width>
       <height>101</height>
      </rect>
     </property>
+    <property name="autoFillBackground">
+     <bool>false</bool>
+    </property>
     <property name="text">
-     <string>Settings</string>
+     <string/>
+    </property>
+    <property name="icon">
+     <iconset>
+      <normaloff>icons/settings.png</normaloff>icons/settings.png</iconset>
     </property>
    </widget>
    <widget class="QPushButton" name="inputButton">
@@ -277,7 +284,11 @@
      </rect>
     </property>
     <property name="text">
-     <string>Back</string>
+     <string/>
+    </property>
+    <property name="icon">
+     <iconset>
+      <normaloff>icons/back.png</normaloff>icons/back.png</iconset>
     </property>
    </widget>
    <widget class="QPushButton" name="nextButton">
@@ -290,7 +301,11 @@
      </rect>
     </property>
     <property name="text">
-     <string>Next</string>
+     <string/>
+    </property>
+    <property name="icon">
+     <iconset>
+      <normaloff>icons/next.png</normaloff>icons/next.png</iconset>
     </property>
    </widget>
    <widget class="QPushButton" name="homeButton">
@@ -303,7 +318,11 @@
      </rect>
     </property>
     <property name="text">
-     <string>Home</string>
+     <string/>
+    </property>
+    <property name="icon">
+     <iconset>
+      <normaloff>icons/home.png</normaloff>icons/home.png</iconset>
     </property>
    </widget>
    <widget class="QStackedWidget" name="stackedWidget">

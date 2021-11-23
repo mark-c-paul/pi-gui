@@ -14,6 +14,10 @@ MainWindow::MainWindow(QWidget *parent)
     ui->thirtyAmpButton->setChecked(true);
     ui->errorText->setVisible(false);
     ui->stackedWidget->setCurrentIndex(0);
+    ui->settingsButton->setIconSize(QSize(80, 80));
+    ui->backButton->setIconSize(QSize(80, 80));
+    ui->nextButton->setIconSize(QSize(80, 80));
+    ui->homeButton->setIconSize(QSize(80, 80));
     QString s = "echo 255 > /sys/class/backlight/rpi_backlight/brightness";
     QProcess process;
     process.start("/bin/sh", QStringList()<< "-c" << s);

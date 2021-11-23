@@ -10,6 +10,7 @@
 #define UI_MAINWINDOW_H
 
 #include <QtCore/QVariant>
+#include <QtGui/QIcon>
 #include <QtWidgets/QApplication>
 #include <QtWidgets/QFrame>
 #include <QtWidgets/QMainWindow>
@@ -130,19 +131,32 @@ public:
         centralwidget->setObjectName(QString::fromUtf8("centralwidget"));
         settingsButton = new QPushButton(centralwidget);
         settingsButton->setObjectName(QString::fromUtf8("settingsButton"));
-        settingsButton->setGeometry(QRect(20, 350, 91, 101));
+        settingsButton->setGeometry(QRect(20, 350, 87, 101));
+        settingsButton->setAutoFillBackground(false);
+        QIcon icon;
+        icon.addFile(QString::fromUtf8("icons/settings.png"), QSize(), QIcon::Normal, QIcon::Off);
+        settingsButton->setIcon(icon);
         inputButton = new QPushButton(centralwidget);
         inputButton->setObjectName(QString::fromUtf8("inputButton"));
         inputButton->setGeometry(QRect(130, 350, 91, 101));
         backButton = new QPushButton(centralwidget);
         backButton->setObjectName(QString::fromUtf8("backButton"));
         backButton->setGeometry(QRect(240, 350, 91, 101));
+        QIcon icon1;
+        icon1.addFile(QString::fromUtf8("icons/back.png"), QSize(), QIcon::Normal, QIcon::Off);
+        backButton->setIcon(icon1);
         nextButton = new QPushButton(centralwidget);
         nextButton->setObjectName(QString::fromUtf8("nextButton"));
         nextButton->setGeometry(QRect(350, 350, 91, 101));
+        QIcon icon2;
+        icon2.addFile(QString::fromUtf8("icons/next.png"), QSize(), QIcon::Normal, QIcon::Off);
+        nextButton->setIcon(icon2);
         homeButton = new QPushButton(centralwidget);
         homeButton->setObjectName(QString::fromUtf8("homeButton"));
         homeButton->setGeometry(QRect(690, 350, 91, 101));
+        QIcon icon3;
+        icon3.addFile(QString::fromUtf8("icons/home.png"), QSize(), QIcon::Normal, QIcon::Off);
+        homeButton->setIcon(icon3);
         stackedWidget = new QStackedWidget(centralwidget);
         stackedWidget->setObjectName(QString::fromUtf8("stackedWidget"));
         stackedWidget->setGeometry(QRect(0, 0, 801, 341));
@@ -369,12 +383,12 @@ public:
     void retranslateUi(QMainWindow *MainWindow)
     {
         MainWindow->setWindowTitle(QCoreApplication::translate("MainWindow", "MainWindow", nullptr));
-        settingsButton->setText(QCoreApplication::translate("MainWindow", "Settings", nullptr));
+        settingsButton->setText(QString());
         inputButton->setText(QCoreApplication::translate("MainWindow", "30A\n"
 " Input", nullptr));
-        backButton->setText(QCoreApplication::translate("MainWindow", "Back", nullptr));
-        nextButton->setText(QCoreApplication::translate("MainWindow", "Next", nullptr));
-        homeButton->setText(QCoreApplication::translate("MainWindow", "Home", nullptr));
+        backButton->setText(QString());
+        nextButton->setText(QString());
+        homeButton->setText(QString());
         timeValue->setHtml(QCoreApplication::translate("MainWindow", "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/REC-html40/strict.dtd\">\n"
 "<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css\">\n"
 "p, li { white-space: pre-wrap; }\n"
