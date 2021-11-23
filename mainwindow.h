@@ -7,6 +7,8 @@ QT_BEGIN_NAMESPACE
 namespace Ui { class MainWindow; }
 QT_END_NAMESPACE
 
+extern int brightness;
+
 class MainWindow : public QMainWindow
 {
     Q_OBJECT
