@@ -252,12 +252,15 @@
     <property name="autoFillBackground">
      <bool>false</bool>
     </property>
+    <property name="styleSheet">
+     <string notr="true"/>
+    </property>
     <property name="text">
      <string/>
     </property>
     <property name="icon">
      <iconset>
-      <normaloff>icons/settings.png</normaloff>icons/settings.png</iconset>
+      <normaloff>../icons/settings.png</normaloff>../icons/settings.png</iconset>
     </property>
    </widget>
    <widget class="QPushButton" name="inputButton">
@@ -288,7 +291,7 @@
     </property>
     <property name="icon">
      <iconset>
-      <normaloff>icons/back.png</normaloff>icons/back.png</iconset>
+      <normaloff>../icons/back.png</normaloff>../icons/back.png</iconset>
     </property>
    </widget>
    <widget class="QPushButton" name="nextButton">
@@ -305,7 +308,7 @@
     </property>
     <property name="icon">
      <iconset>
-      <normaloff>icons/next.png</normaloff>icons/next.png</iconset>
+      <normaloff>../icons/next.png</normaloff>../icons/next.png</iconset>
     </property>
    </widget>
    <widget class="QPushButton" name="homeButton">
@@ -322,7 +325,7 @@
     </property>
     <property name="icon">
      <iconset>
-      <normaloff>icons/home.png</normaloff>icons/home.png</iconset>
+      <normaloff>../icons/home.png</normaloff>../icons/home.png</iconset>
     </property>
    </widget>
    <widget class="QStackedWidget" name="stackedWidget">
@@ -335,7 +338,7 @@
      </rect>
     </property>
     <property name="currentIndex">
-     <number>3</number>
+     <number>4</number>
     </property>
     <widget class="QWidget" name="page_1">
      <widget class="QTextEdit" name="timeValue">
@@ -879,7 +882,6 @@ font: 36px;
       <property name="styleSheet">
        <string notr="true">#enterButton{
 border: 2px solid black;
-background-color: gray;
 background-color: green;
 font: 36px;
 }</string>

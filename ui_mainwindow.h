@@ -133,8 +133,9 @@ public:
         settingsButton->setObjectName(QString::fromUtf8("settingsButton"));
         settingsButton->setGeometry(QRect(20, 350, 87, 101));
         settingsButton->setAutoFillBackground(false);
+        settingsButton->setStyleSheet(QString::fromUtf8(""));
         QIcon icon;
-        icon.addFile(QString::fromUtf8("icons/settings.png"), QSize(), QIcon::Normal, QIcon::Off);
+        icon.addFile(QString::fromUtf8("../icons/settings.png"), QSize(), QIcon::Normal, QIcon::Off);
         settingsButton->setIcon(icon);
         inputButton = new QPushButton(centralwidget);
         inputButton->setObjectName(QString::fromUtf8("inputButton"));
@@ -143,19 +144,19 @@ public:
         backButton->setObjectName(QString::fromUtf8("backButton"));
         backButton->setGeometry(QRect(240, 350, 91, 101));
         QIcon icon1;
-        icon1.addFile(QString::fromUtf8("icons/back.png"), QSize(), QIcon::Normal, QIcon::Off);
+        icon1.addFile(QString::fromUtf8("../icons/back.png"), QSize(), QIcon::Normal, QIcon::Off);
         backButton->setIcon(icon1);
         nextButton = new QPushButton(centralwidget);
         nextButton->setObjectName(QString::fromUtf8("nextButton"));
         nextButton->setGeometry(QRect(350, 350, 91, 101));
         QIcon icon2;
-        icon2.addFile(QString::fromUtf8("icons/next.png"), QSize(), QIcon::Normal, QIcon::Off);
+        icon2.addFile(QString::fromUtf8("../icons/next.png"), QSize(), QIcon::Normal, QIcon::Off);
         nextButton->setIcon(icon2);
         homeButton = new QPushButton(centralwidget);
         homeButton->setObjectName(QString::fromUtf8("homeButton"));
         homeButton->setGeometry(QRect(690, 350, 91, 101));
         QIcon icon3;
-        icon3.addFile(QString::fromUtf8("icons/home.png"), QSize(), QIcon::Normal, QIcon::Off);
+        icon3.addFile(QString::fromUtf8("../icons/home.png"), QSize(), QIcon::Normal, QIcon::Off);
         homeButton->setIcon(icon3);
         stackedWidget = new QStackedWidget(centralwidget);
         stackedWidget->setObjectName(QString::fromUtf8("stackedWidget"));
@@ -303,7 +304,6 @@ public:
         enterButton->setGeometry(QRect(560, 180, 221, 91));
         enterButton->setStyleSheet(QString::fromUtf8("#enterButton{\n"
 "border: 2px solid black;\n"
-"background-color: gray;\n"
 "background-color: green;\n"
 "font: 36px;\n"
 "}"));
@@ -374,7 +374,7 @@ public:
 
         retranslateUi(MainWindow);
 
-        stackedWidget->setCurrentIndex(3);
+        stackedWidget->setCurrentIndex(4);
 
 
         QMetaObject::connectSlotsByName(MainWindow);
