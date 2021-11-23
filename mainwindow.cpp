@@ -14,8 +14,10 @@ MainWindow::MainWindow(QWidget *parent)
     ui->thirtyAmpButton->setChecked(true);
     ui->errorText->setVisible(false);
     ui->stackedWidget->setCurrentIndex(0);
+    QString s = "echo 255 > /sys/class/backlight/rpi_backlight/brightness";
     QProcess process;
-    process.start("echo 255 > /sys/class/backlight/rpi_backlight/brightness");
+    process.start("/bin/sh", QStringList()<< "-c" << s);
+    process.waitForFinished();
     ui->brightnessButton->setText("BRIGHTNESS\n100%");
     brightness = 255;
 }
@@ -24,8 +26,6 @@ MainWindow::~MainWindow()
 {
     delete ui;
 }
-
-
 
 void MainWindow::on_nextButton_clicked()
 {
@@ -202,67 +202,77 @@ void MainWindow::on_autoGenButton_clicked()
 
 void MainWindow::on_brightnessButton_clicked()
 {
-    //QString value;
-    //int num;
-    /*QFile file("/sys/class/backlight/rpi_backlight/brightness");
-    if (!file.open(QIODevice::ReadOnly | QIODevice::Text))
-        return;
-
-    while (!file.atEnd()) {
-        QByteArray line = file.readLine();
-        value=line;
-    }
-    num = value.toInt();*/
+    QString s;
     QProcess process;
     switch(brightness){
 
     case 255:
-        process.start("echo 25 > /sys/class/backlight/rpi_backlight/brightness");
+        s = "echo 25 > /sys/class/backlight/rpi_backlight/brightness";
+        process.start("/bin/sh", QStringList()<< "-c" << s);
+        process.waitForFinished();
         ui->brightnessButton->setText("BRIGHTNESS\n10%");
         brightness = 25;
         break;
     case 25:
-        process.start("echo 51 > /sys/class/backlight/rpi_backlight/brightness");
+        s = "echo 51 > /sys/class/backlight/rpi_backlight/brightness";
+        process.start("/bin/sh", QStringList()<< "-c" << s);
+        process.waitForFinished();
         ui->brightnessButton->setText("BRIGHTNESS\n20%");
         brightness = 51;
         break;
     case 51:
-        process.start("echo 76 > /sys/class/backlight/rpi_backlight/brightness");
+        s = "echo 76 > /sys/class/backlight/rpi_backlight/brightness";
+        process.start("/bin/sh", QStringList()<< "-c" << s);
+        process.waitForFinished();
         ui->brightnessButton->setText("BRIGHTNESS\n30%");
         brightness = 76;
         break;
     case 76:
-        process.start("echo 102 > /sys/class/backlight/rpi_backlight/brightness");
+        s = "echo 102 > /sys/class/backlight/rpi_backlight/brightness";
+        process.start("/bin/sh", QStringList()<< "-c" << s);
+        process.waitForFinished();
         ui->brightnessButton->setText("BRIGHTNESS\n40%");
         brightness = 102;
         break;
     case 102:
-        process.start("echo 127 > /sys/class/backlight/rpi_backlight/brightness");
+        s = "echo 127 > /sys/class/backlight/rpi_backlight/brightness";
+        process.start("/bin/sh", QStringList()<< "-c" << s);
+        process.waitForFinished();
         ui->brightnessButton->setText("BRIGHTNESS\n50%");
         brightness = 127;
         break;
     case 127:
-        process.start("echo 153 > /sys/class/backlight/rpi_backlight/brightness");
+        s = "echo 153 > /sys/class/backlight/rpi_backlight/brightness";
+        process.start("/bin/sh", QStringList()<< "-c" << s);
+        process.waitForFinished();
         ui->brightnessButton->setText("BRIGHTNESS\n60%");
         brightness = 153;
         break;
     case 153:
-        process.start("echo 178 > /sys/class/backlight/rpi_backlight/brightness");
+        s = "echo 178 > /sys/class/backlight/rpi_backlight/brightness";
+        process.start("/bin/sh", QStringList()<< "-c" << s);
+        process.waitForFinished();
         ui->brightnessButton->setText("BRIGHTNESS\n70%");
         brightness = 178;
         break;
     case 178:
-        process.start("echo 204 > /sys/class/backlight/rpi_backlight/brightness");
+        s = "echo 204 > /sys/class/backlight/rpi_backlight/brightness";
+        process.start("/bin/sh", QStringList()<< "-c" << s);
+        process.waitForFinished();
         ui->brightnessButton->setText("BRIGHTNESS\n80%");
         brightness = 204;
         break;
     case 204:
-        process.start("echo 229 > /sys/class/backlight/rpi_backlight/brightness");
+        s = "echo 229 > /sys/class/backlight/rpi_backlight/brightness";
+        process.start("/bin/sh", QStringList()<< "-c" << s);
+        process.waitForFinished();
         ui->brightnessButton->setText("BRIGHTNESS\n90%");
         brightness = 229;
         break;
     default:
-        process.start("echo 255 > /sys/class/backlight/rpi_backlight/brightness");
+        s = "echo 255 > /sys/class/backlight/rpi_backlight/brightness";
+        process.start("/bin/sh", QStringList()<< "-c" << s);
+        process.waitForFinished();
         ui->brightnessButton->setText("BRIGHTNESS\n100%");
         brightness = 255;
         break;
