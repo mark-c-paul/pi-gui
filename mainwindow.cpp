@@ -4,6 +4,8 @@
 #include <QFile>
 
 int brightness;
+bool warningDetected = true;
+bool alertDetected = true;
 
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
@@ -13,11 +15,8 @@ MainWindow::MainWindow(QWidget *parent)
     ui->backButton->setVisible(false);
     ui->thirtyAmpButton->setChecked(true);
     ui->errorText->setVisible(false);
+    ui->warningButton->setVisible(warningDetected);
     ui->stackedWidget->setCurrentIndex(0);
-    ui->settingsButton->setIconSize(QSize(80, 80));
-    ui->backButton->setIconSize(QSize(80, 80));
-    ui->nextButton->setIconSize(QSize(80, 80));
-    ui->homeButton->setIconSize(QSize(80, 80));
     QString s = "echo 255 > /sys/class/backlight/rpi_backlight/brightness";
     QProcess process;
     process.start("/bin/sh", QStringList()<< "-c" << s);
@@ -57,6 +56,7 @@ void MainWindow::on_homeButton_clicked()
     ui->settingsButton->setVisible(true);
     ui->inputButton->setVisible(true);
     ui->errorText->setVisible(false);
+    ui->warningButton->setVisible(warningDetected);
     ui->pinText->clear();
 }
 
@@ -67,6 +67,7 @@ void MainWindow::on_settingsButton_clicked()
     ui->nextButton->setVisible(false);
     ui->settingsButton->setVisible(false);
     ui->inputButton->setVisible(false);
+    ui->warningButton->setVisible(false);
 }
 
 void MainWindow::on_inputButton_clicked()
@@ -76,6 +77,7 @@ void MainWindow::on_inputButton_clicked()
     ui->nextButton->setVisible(false);
     ui->settingsButton->setVisible(false);
     ui->inputButton->setVisible(false);
+    ui->warningButton->setVisible(false);
 }
 
 void MainWindow::on_deleteButton_clicked()
@@ -296,5 +298,16 @@ void MainWindow::on_temperatureUnitsButton_clicked()
 void MainWindow::on_shutdownButton_clicked()
 {
     QApplication::quit();
+}
+
+
+void MainWindow::on_warningButton_clicked()
+{
+    ui->stackedWidget->setCurrentIndex(7);
+    ui->backButton->setVisible(false);
+    ui->nextButton->setVisible(false);
+    ui->settingsButton->setVisible(false);
+    ui->inputButton->setVisible(false);
+    ui->warningButton->setVisible(false);
 }
 

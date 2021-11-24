@@ -8,6 +8,8 @@ namespace Ui { class MainWindow; }
 QT_END_NAMESPACE
 
 extern int brightness;
+extern bool warningDetected;
+extern bool alertDetected;
 
 class MainWindow : public QMainWindow
 {
@@ -66,6 +68,8 @@ private slots:
     void on_temperatureUnitsButton_clicked();
 
     void on_shutdownButton_clicked();
+
+    void on_warningButton_clicked();
 
 private:
     Ui::MainWindow *ui;

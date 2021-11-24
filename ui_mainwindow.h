@@ -75,6 +75,10 @@ public:
     QPushButton *twentyfourAmpButton;
     QPushButton *thirtyAmpButton;
     QWidget *page_6;
+    QWidget *page_7;
+    QTextEdit *textEdit_3;
+    QTextEdit *textEdit_4;
+    QPushButton *warningButton;
     QMenuBar *menubar;
     QStatusBar *statusbar;
 
@@ -377,6 +381,31 @@ public:
         page_6 = new QWidget();
         page_6->setObjectName(QString::fromUtf8("page_6"));
         stackedWidget->addWidget(page_6);
+        page_7 = new QWidget();
+        page_7->setObjectName(QString::fromUtf8("page_7"));
+        textEdit_3 = new QTextEdit(page_7);
+        textEdit_3->setObjectName(QString::fromUtf8("textEdit_3"));
+        textEdit_3->setEnabled(false);
+        textEdit_3->setGeometry(QRect(10, 10, 781, 61));
+        textEdit_3->setFrameShape(QFrame::NoFrame);
+        textEdit_4 = new QTextEdit(page_7);
+        textEdit_4->setObjectName(QString::fromUtf8("textEdit_4"));
+        textEdit_4->setEnabled(false);
+        textEdit_4->setGeometry(QRect(10, 70, 781, 261));
+        textEdit_4->setFrameShape(QFrame::NoFrame);
+        stackedWidget->addWidget(page_7);
+        warningButton = new QPushButton(centralwidget);
+        warningButton->setObjectName(QString::fromUtf8("warningButton"));
+        warningButton->setGeometry(QRect(460, 350, 91, 101));
+        warningButton->setStyleSheet(QString::fromUtf8("#warningButton {\n"
+"border: 1px solid black;\n"
+"background-color: red;\n"
+"font: 36px;\n"
+"}"));
+        QIcon icon4;
+        icon4.addFile(QString::fromUtf8("../icons/warning.png"), QSize(), QIcon::Normal, QIcon::Off);
+        warningButton->setIcon(icon4);
+        warningButton->setIconSize(QSize(80, 80));
         MainWindow->setCentralWidget(centralwidget);
         menubar = new QMenuBar(MainWindow);
         menubar->setObjectName(QString::fromUtf8("menubar"));
@@ -388,7 +417,7 @@ public:
 
         retranslateUi(MainWindow);
 
-        stackedWidget->setCurrentIndex(2);
+        stackedWidget->setCurrentIndex(7);
 
 
         QMetaObject::connectSlotsByName(MainWindow);
@@ -514,6 +543,17 @@ public:
         fifteenAmpButton->setText(QCoreApplication::translate("MainWindow", "15 A", nullptr));
         twentyfourAmpButton->setText(QCoreApplication::translate("MainWindow", "24 A", nullptr));
         thirtyAmpButton->setText(QCoreApplication::translate("MainWindow", "30 A", nullptr));
+        textEdit_3->setHtml(QCoreApplication::translate("MainWindow", "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/REC-html40/strict.dtd\">\n"
+"<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css\">\n"
+"p, li { white-space: pre-wrap; }\n"
+"</style></head><body style=\" font-family:'MS Shell Dlg 2'; font-size:8.25pt; font-weight:400; font-style:normal;\">\n"
+"<p align=\"center\" style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-size:28pt; font-weight:600; color:#c6c600;\">ALERTS</span></p></body></html>", nullptr));
+        textEdit_4->setHtml(QCoreApplication::translate("MainWindow", "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/REC-html40/strict.dtd\">\n"
+"<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css\">\n"
+"p, li { white-space: pre-wrap; }\n"
+"</style></head><body style=\" font-family:'MS Shell Dlg 2'; font-size:8.25pt; font-weight:400; font-style:normal;\">\n"
+"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-family:'Segoe UI'; font-size:20pt; color:#ffffff;\">Alert text goes here</span></p></body></html>", nullptr));
+        warningButton->setText(QString());
     } // retranslateUi
 
 };
