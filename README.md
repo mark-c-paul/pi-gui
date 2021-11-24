@@ -1,4 +1,4 @@
 # pi-gui
 touch screen gui for work
 
-![image](https://user-images.githubusercontent.com/8431762/142264829-fae8095f-8886-46ea-b803-9405df7e8c8b.png)
+![2021-11-24 14_43_44-MainWindow](https://user-images.githubusercontent.com/8431762/143322120-0bce3bbd-aad0-4b22-8313-388a34ef5668.png)
